@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docaposte - To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <img src="assets/docaposte-logo.png.jpg" alt="Docaposte" class="logo">
+            <h1>To-Do List</h1>
+        </header>
+        
+        <form id="taskForm" class="todo-input">
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="Nouvelle tâche..." required>
+                <select id="taskCategory" required>
+                    <option value="">Choisir une catégorie</option>
+                    <option value="support">🔧 Support IT</option>
+                    <option value="projet">📊 Projets</option>
+                    <option value="reunion">👥 Réunions</option>
+                </select>
+            </div>
+
+            <div class="priority-buttons">
+                <button type="button" class="priority-button urgent" data-priority="urgent">
+                    ⚡ Urgent
+                </button>
+                <button type="button" class="priority-button normal selected" data-priority="normal">
+                    ⚪ Normal
+                </button>
+                <button type="button" class="priority-button basse" data-priority="basse">
+                    ⭐ Basse
+                </button>
+            </div>
+
+            <div class="date-group">
+                <div id="countdownContainer" class="countdown-input" style="display: none;">
+                    <i class="fas fa-clock"></i>
+                    <input type="number" id="countdownHours" min="1" max="48" value="1">
+                    <span>heures</span>
+                </div>
+                <div class="notification-toggle">
+                    <input type="checkbox" id="enableNotification" checked>
+                    <label for="enableNotification">Activer les notifications</label>
+                </div>
+            </div>
+
+            <div class="date-group">
+                <div class="deadline-input">
+                    <i class="far fa-calendar-alt"></i>
+                    <input type="datetime-local" id="taskDeadline" placeholder="Date d'échéance">
+                </div>
+            </div>
+
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <ul id="taskList">
+            <!-- Les tâches seront ajoutées ici -->
+        </ul>
+    </div>
+
+    <div id="notification" class="notification-popup">
+        <i class="fas fa-bell"></i>
+        <span id="notificationMessage"></span>
+        <button id="closeNotification">&times;</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
